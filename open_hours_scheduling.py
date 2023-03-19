@@ -87,8 +87,7 @@ async def on_ready():
 
             response.raise_for_status()
             print(f'Posted event "{event["title"]}"')
-            print(response.tex
-            t)  # Print the response body for debugging
+            print(response.text)  # Print the response body for debugging
         except requests.exceptions.RequestException as e:
             print(f"Error posting event: {e}")
 
