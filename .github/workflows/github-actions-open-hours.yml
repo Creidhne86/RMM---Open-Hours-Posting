@@ -7,8 +7,8 @@ on:
         description: 'An example input'
         required: true
         default: 'default_value'
-  schedule:
-    - cron: "30 17 15 * *"
+  #schedule:
+  #  - cron: "30 17 15 * *"
 
 jobs:
   my_job:
