@@ -102,6 +102,11 @@ async def on_ready():
 
         #await asyncio.sleep(30)  # Wait for 30 seconds before posting the next event
     print("Finished processing event_dates.")
+
+@client.event
+async def on_connect():
+    print("Bot has connected to Discord.")    
+    
 # Log in to Discord
 print("Connecting to Discord...")
 client.run(BOT_TOKEN)
