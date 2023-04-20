@@ -98,7 +98,7 @@ async def on_ready():
         except requests.exceptions.RequestException as e:
             print(f"Error posting event: {e}")
 
-        await asyncio.sleep(30)  # Wait for 30 seconds before posting the next event
+        #await asyncio.sleep(30)  # Wait for 30 seconds before posting the next event
 
 # Log in to Discord
 client.run(BOT_TOKEN)
