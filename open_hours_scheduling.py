@@ -1,3 +1,4 @@
+import os
 import requests
 import discord
 import datetime
@@ -9,6 +10,12 @@ intents = discord.Intents.default()
 intents.members = True  # Enable the members intent to access member-related events
 
 client = discord.Client(intents=intents)
+
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
+LEADER_ID = os.environ.get("LEADER_ID")
+SERVER_ID = os.environ.get("SERVER_ID")
+CHANNEL_ID = os.environ.get("CHANNEL_ID")
+API_KEY = os.environ.get("API_KEY")
 
 
 def generate_event_dates_for_month(year, month):
