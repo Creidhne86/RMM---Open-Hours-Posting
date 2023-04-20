@@ -55,6 +55,7 @@ sunday_time = datetime.time(hour=11, minute=0)
 @client.event
 async def on_ready():
     print(f"Logged in as {client.user}")
+    print("Processing event_dates...")
 
     for date in event_dates:
         if date.weekday() == calendar.SUNDAY:
@@ -67,6 +68,7 @@ async def on_ready():
             day = "Tuesday" if date.weekday() == calendar.TUESDAY else "Thursday"
 
         event_data = create_event_for_date(date, time, duration)
+        print(f"Event data for {date}: {event_data}")
 
         event = {
             "title": f"{day} Open Hours",
@@ -91,7 +93,7 @@ async def on_ready():
                 headers={"Authorization": API_KEY, "Content-Type": "application/json; charset=utf-8"},
                 json=post_data,
             )
-
+    
             response.raise_for_status()
             print(f'Posted event "{event["title"]}"')
             print(response.text)  # Print the response body for debugging
@@ -99,6 +101,8 @@ async def on_ready():
             print(f"Error posting event: {e}")
 
         #await asyncio.sleep(30)  # Wait for 30 seconds before posting the next event
-
+    print("Finished processing event_dates.")
 # Log in to Discord
+print("Connecting to Discord...")
 client.run(BOT_TOKEN)
+print("Disconnected from Discord.")
